@@ -12,7 +12,14 @@ Currently, this adds Event Hub Collector support
 
 ## Running
 
-TODO: link to variables used and show docker run -e for the minimum needed
+You can use any existing env variables from Zipkin. Here's adding the variables needed for Event Hub:
+
+```bash
+docker run \
+-e 'EVENTHUB_CONNECTION_STRING=Endpoint=sb://your_eventhub_address;SharedAccessKeyName=your_key_name;SharedAccessKey=your_key' \
+-e 'EVENTHUB_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=your_account_name;AccountKey=your_account_key' \
+-d -p 9411:9411 openzipkin/zipkin-azure
+```
 
 ## Configuration
 
