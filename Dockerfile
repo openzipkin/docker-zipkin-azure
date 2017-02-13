@@ -14,11 +14,11 @@
 FROM openzipkin/zipkin:1.20.0
 MAINTAINER OpenZipkin "http://zipkin.io/"
 
-ENV ZIPKIN_AWS_REPO https://jcenter.bintray.com
-ENV ZIPKIN_AWS_VERSION 0.1.1
+ENV ZIPKIN_AZURE_REPO https://jcenter.bintray.com
+ENV ZIPKIN_AZURE_VERSION 0.1.2
 
-RUN apk add unzip && \ 
-  curl -SL $ZIPKIN_AWS_REPO/io/zipkin/azure/zipkin-autoconfigure-collector-eventhub/$ZIPKIN_AWS_VERSION/zipkin-autoconfigure-collector-eventhub-$ZIPKIN_AWS_VERSION-module.jar > eventhub.jar && \
+RUN apk add unzip && \
+  curl -SL $ZIPKIN_AZURE_REPO/io/zipkin/azure/zipkin-autoconfigure-collector-eventhub/$ZIPKIN_AZURE_VERSION/zipkin-autoconfigure-collector-eventhub-$ZIPKIN_AZURE_VERSION-module.jar > eventhub.jar && \
   unzip eventhub.jar -d eventhub && \
   rm eventhub.jar && \
   apk del unzip
